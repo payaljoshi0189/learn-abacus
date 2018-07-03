@@ -3,3 +3,6 @@ This project aims to create a platform to learn abacus. For now, students can ge
 
 Future Work:
 Provide online tutoring.
+
+License:
+Learn abacus is licensed under the MIT license.
