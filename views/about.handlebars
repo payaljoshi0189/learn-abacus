@@ -48,6 +48,9 @@
               <a class="nav-link text-uppercase text-expanded" href="about">About</a>
             </li>
             <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="schedule">Schedule</a>
+            </li>
+            <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="products">Products</a>
             </li>
             <li class="nav-item px-lg-4">
@@ -60,12 +63,13 @@
 
     <section class="page-section about-heading">
       <div class="container">
-        <!--<img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="../public/img/about.jpg" alt="">-->
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+        <!--Reference: https://getbootstrap.com/docs/4.0/components/carousel/ -->
+        <div id="carouselForAbout" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselForAbout" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselForAbout" data-slide-to="1"></li>
+            <li data-target="#carouselForAbout" data-slide-to="2"></li>
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -78,11 +82,11 @@
               <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="../public/img/about.jpg"" alt="Third slide">
             </div>
           </div>
-          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <a class="carousel-control-prev" href="#carouselForAbout" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
           </a>
-          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <a class="carousel-control-next" href="#carouselForAbout" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
@@ -92,8 +96,8 @@
             <div class="col-xl-9 col-lg-10 mx-auto">
               <div class="bg-faded rounded p-5">
                 <h2 class="section-heading mb-4">
-                  <span class="section-heading-upper">Strong Coffee, Strong Roots</span>
-                  <span class="section-heading-lower">About Our Cafe</span>
+                  <span class="section-heading-upper">Abacus Math</span>
+                  <span class="section-heading-lower">About Our teaching</span>
                 </h2>
                 <p>Founded in 1987 by the Hernandez brothers, our establishment has been serving up rich coffee sourced from artisan farmers in various regions of South and Central America. We are dedicated to travelling the world, finding the best coffee, and bringing back to you here in our cafe.</p>
                 <p class="mb-0">We guarantee that you will fall in <em>lust</em> with our decadent blends the moment you walk inside until you finish your last sip. Join us for your daily routine, an outing with friends, or simply just to enjoy some alone time.</p>
@@ -104,17 +108,16 @@
       </div>
     </section>
 
-    <footer class="footer text-faded text-center py-5">
+   <footer class="footer text-faded text-center py-5">
       <div class="container">
         <p class="m-0 small">Copyright &copy; Learn Abacus 2018</p>
+        <p class="m-0 small"><a href= "https://www.flickr.com/photos/blaahhi/3597105175" style = "color: inherit;">Background image</a> by Sami is licensed under <a href = "https://creativecommons.org/licenses/by/2.0/" style = "color: inherit;">CC BY 2.0</a></p>
       </div>
     </footer>
 
     <!-- Bootstrap core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
-    <!--<script src="vendor/jquery/jquery.min.js"></script>-->
-    <!--<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
 
   </body>
 

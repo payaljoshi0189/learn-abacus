@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Mind Miracle</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+    
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="../public/css/business-casual.css" >
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  </head>
+  <body>
+      <h1 class="site-heading text-center text-white d-none d-lg-block">
+      <span class="site-heading-upper text-primary mb-3">Learn abacus with us at</span>
+      <span class="site-heading-lower">Mind Miracle</span>
+    </h1>
+
+      <section class="page-section about-heading">
+      <div class="container">
+        <br>
+        <br>
+        <br>
+        <div class="about-heading-content">
+          <div class="row">
+            <div class="col-xl-9 col-lg-10 mx-auto">
+              <div class="bg-faded rounded p-5">
+                <div class = "container-fluid" align="center">
+                      <div class = "col-md-4 col-sm-4 col-xs-12"></div>
+                      <div class = "col-md-6 col-sm-6 col-xs-12">
+                        {{#if errors}}
+                          {{#each errors}}
+                            <div class = "alert alert-danger">{{msg}}</div>
+                          {{/each}}
+                        {{/if}}    
+                        <form method="POST" action="/views/register" class="form-container" name="enquiryForm">
+                          {{msg}} <br>
+                          <div class="form-group input-group mb-2">
+                          <div class="input-group-prepend">
+                                  <span class="input-group-text"><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
+                          </div>
+                          <input type="text" style = "width: 75px !important" class="form-control" id="memberId" placeholder="Enter member Id" name="memberId" required>
+                        </div>
+                        <div class="form-group input-group mb-2">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></span>
+                          </div>
+                            <input type="text" class="form-control" id="firstName" placeholder="Enter first name" name="firstName"/>
+                        </div>
+                        <div class="form-group input-group mb-2">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="lastName" placeholder="Enter last name" name="lastName" />
+                        </div>
+                         <div class="form-group input-group mb-2">
+                            <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-envelope" aria-hidden="true" style="font-size: 12px;"></i></span>
+                            </div>
+                            <input type="email" class="form-control" id="exampleEmailId" placeholder="Enter Email id" name="email" path="email" 
+                            required = "true" data-error="Please enter Email address" />
+                            <span class="glyphicon form-control-feedback"></span>
+                            <span class="help-block with-errors"></span>
+                        </div>
+                        <div class="form-group input-group mb-2">
+                            <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-key" aria-hidden="true" style="font-size: 12px;"></i>
+                                    </span>
+                            </div>
+                            <input type="Password" class="form-control" id="password" placeholder="Enter Password" name="password"
+                            required = "true" data-error="Please enter your password" />
+                            <span class="glyphicon form-control-feedback"></span>
+                            <span class="help-block with-errors"></span>
+                        </div>
+                        <div class="form-group input-group mb-2">
+                            <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-key" aria-hidden="true" style="font-size: 12px;"></i>
+                                    </span>
+                            </div>
+                            <input type="Password" class="form-control" id="confirmPassword" placeholder="Confirm Password" name="confirmPassword" required = "true"/>
+                            <span class="glyphicon form-control-feedback"></span>
+                            <span class="help-block with-errors"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer text-faded text-center py-5" style="margin-top: 200px">
+      <div class="container">
+         <p class="m-0 small"><a href= "https://www.flickr.com/photos/blaahhi/3597105175" style = "color: inherit;">Background image</a> by Sami is licensed under <a href = "https://creativecommons.org/licenses/by/2.0/" style = "color: inherit;">CC BY 2.0</a></p>
+        <p class="m-0 small">Copyright &copy; Learn Abacus 2018</p>
+      </div>
+    </footer>
+
+     <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+
+
+  </body>
+  </html>
