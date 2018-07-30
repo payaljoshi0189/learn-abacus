@@ -15,7 +15,7 @@ const mongo = require('mongodb');
 var Member = require('./model/member');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/learnabacus');
+mongoose.connect('mongodb://localhost:27017/learnabacus', {useNewUrlParser: true});       
 const db = mongoose.connection;
 
 const app = express();
@@ -96,9 +96,56 @@ app.post('/views/register', (req, res) => {
         console.log(member);
        });
        req.flash('success_msg','Registered successfully!');
-       res.redirect('views/login');
+       res.redirect('/views/login');
     }
 })
+
+passport.use(new passportLocal({
+        usernameField: 'memberId',
+        passwordField: 'password'
+    },
+  function(memberId, password, done) {
+    Member.getMemberByMemberId(memberId, function(error, member){
+        if(error) throw error;
+        if(!member){
+            return done(null, false, {message: 'Member not found!'});
+        }
+        Member.comparePassword(password, member.password, function(error, isMatch){
+            if(error) throw error;
+            if(isMatch){
+                return done(null, member);
+            } else{
+                return done(null, false, {message: 'Invalid password.'});
+            }
+        });
+    });
+  }));
+
+
+passport.serializeUser(function(member, done) {
+  done(null, member.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  Member.getMemberById(id, function(error, member) {
+    done(error, member);
+  });
+});
+
+app.post('/login',
+  passport.authenticate('local',{successRedirect: '/views/index', failureRedirect: '/views/login', failureFlash: true}),
+  function(req, res) {
+    // If this function gets called, authentication was successful.
+    // `req.user` contains the authenticated user.
+    res.redirect('/views/index');
+  });
+
+app.get('/logout',function(req, res) {
+    req.logout();
+    req.flash('success_msg', 'Logged out successfully!');
+    res.redirect('/views/login');
+});
+
 
 /*Code Reference for email functionality: 
  1. https://nodemailer.com/about/ 
@@ -114,8 +161,9 @@ app.post('/sendEnquiry', (req, res) => {
 	let transporter = nodemailer.createTransport({
        service: 'gmail',
         auth: {
-            user: 'testlearnabacus@gmail.com' ,// generated ethereal user
-            pass: 'learnabacus@123'	// generated ethereal password
+            /* user:  // generated ethereal user
+            pass: 	// generated ethereal password
+            */
         }
     });
 
