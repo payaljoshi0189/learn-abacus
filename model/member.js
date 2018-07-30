@@ -1,6 +1,18 @@
+// Copyright (c) 2018 Payal P Joshi
+//[This program is licensed under the "MIT License"]
+// Please see the file LICENSE in the source
+// distribution of this software for license terms.
 
-//Code Reference: Online tutorial by Traversy Media:
-//Link: https://github.com/bradtraversy/loginapp
+
+
+/*  Code reference for Login and Register Functionality:
+    1. Passportjs official documentation: http://www.passportjs.org/docs/
+    2. bcryptjs official documentation: https://www.npmjs.com/package/bcryptjs
+    3. Video Tutorials by Traversy Media at https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA
+    4. https://github.com/bradtraversy/loginapp
+ */
+
+ //This is a model class for mongoose's member collection.
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 
@@ -30,7 +42,7 @@ var Member = module.exports = mongoose.model('Member', MemberSchema);
 
 module.exports.createMember = function(newMember, callBack){
 
-	//Code Reference: https://www.npmjs.com/package/bcryptjs (Usage Async)
+	//Code Reference: bcryptjs official documentation https://www.npmjs.com/package/bcryptjs (Usage Async)
 	bcrypt.genSalt(10, function(error, salt) {
     bcrypt.hash(newMember.password, salt, function(error, hash) {
         // Store hash in your password DB.

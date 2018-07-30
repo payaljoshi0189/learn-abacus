@@ -1,3 +1,9 @@
+// Copyright (c) 2018 Payal P Joshi
+//[This program is licensed under the "MIT License"]
+// Please see the file LICENSE in the source
+// distribution of this software for license terms.
+
+
 //import depedencies
 const express = require('express');
 var router = express.Router();
@@ -21,11 +27,16 @@ const db = mongoose.connection;
 const app = express();
 
 
-//Code reference for Login and Register Functionality: https://github.com/bradtraversy/loginapp
-/*Code Reference for email functionality: 
- 1. https://nodemailer.com/about/ 
- 2. https://medium.com/@manojsinghnegi/sending-an-email-using-nodemailer-gmail-7cfa0712a799
- 3. https://www.youtube.com/watch?v=nF9g1825mwk
+/*  Code reference for Login and Register Functionality:
+    1. Passportjs official documentation: http://www.passportjs.org/docs/
+    2. bcryptjs official documentation: https://www.npmjs.com/package/bcryptjs
+    3. Video Tutorials by Traversy Media at https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA
+    4. https://github.com/bradtraversy/loginapp
+
+    Code Reference for email functionality: 
+    1. https://nodemailer.com/about/ 
+    2. https://medium.com/@manojsinghnegi/sending-an-email-using-nodemailer-gmail-7cfa0712a799
+    3. https://www.youtube.com/watch?v=nF9g1825mwk
  */
 
 //View Engine Setup
@@ -66,7 +77,6 @@ app.use(passport.initialize());
 app.use(passport.session())
 
 app.use(cookieParser());
-
 app.use(expressValidator());
 
 
@@ -76,7 +86,8 @@ app.get('/views/:parameter', function(req, res) {
 });
 
 
-app.post('/views/register', (req, res) => {
+// Register Functionality
+app.post('/register', (req, res) => {
     req.checkBody('confirmPassword', 'Passwords do not match').equals(req.body.password);
     var errors = req.validationErrors();
     if(errors){
@@ -98,9 +109,15 @@ app.post('/views/register', (req, res) => {
        req.flash('success_msg','Registered successfully!');
        res.redirect('/views/login');
     }
-})
+});
 
+
+//Login functionality
 passport.use(new passportLocal({
+    /* Code Reference: stackoverflow at https://stackoverflow.com/questions/34511021/passport-js-missing-credentials
+       Code Author: https://stackoverflow.com/users/1317053/a%E1%B4%8D%C9%AA%CA%80
+       Licensed under CC-Wiki : https://creativecommons.org/licenses/by-sa/3.0/   
+    */
         usernameField: 'memberId',
         passwordField: 'password'
     },
@@ -132,6 +149,7 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
+
 app.post('/login',
   passport.authenticate('local',{successRedirect: '/views/index', failureRedirect: '/views/login', failureFlash: true}),
   function(req, res) {
@@ -147,10 +165,7 @@ app.get('/logout',function(req, res) {
 });
 
 
-/*Code Reference for email functionality: 
- 1. https://nodemailer.com/about/ 
- 2. https://www.youtube.com/watch?v=nF9g1825mwk
- */
+//Trigger email on sending an enquiry 
 app.post('/sendEnquiry', (req, res) => {
 	var emailContents = 
 	`<p> ${req.body.name} has sent an enquiry.</p>
