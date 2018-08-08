@@ -29,6 +29,15 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   </head>
   <body>
+    <!--Code reference: Facebook for developers @ https://developers.facebook.com/docs/plugins/like-button -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1';
+            fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
       <h1 class="site-heading text-center text-white d-none d-lg-block">
       <span class="site-heading-upper text-primary mb-3">Learn abacus with us at</span>
       <span class="site-heading-lower">Mind Miracle</span>
@@ -43,28 +52,28 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item active px-lg-4">
+            <li class="nav-item  px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="index">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item px-lg-4">
+            <li class="nav-item  px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="about">About</a>
             </li>
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="schedule">Schedule</a>
             </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="store">Store</a>
+            <li class="nav-item  px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="#">Chat with a tutor</a>
+            </li>
+            <li class="nav-item active px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="enquiry">Get in touch</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="enquiry">Chat with a tutor</a>
+              <a class="nav-link text-uppercase text-expanded" href="contact">Location</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="enquiry">Send enquiry</a>
-            </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="contact">Get in touch</a>
+              <a class="nav-link text-uppercase text-expanded" href="/logout">Logout</a>
             </li>
           </ul>
         </div>
@@ -108,7 +117,7 @@
                           <textarea class="form-control" id="enquiryTextarea" rows="3" placeholder="Enter your query here.">
                           </textarea>
                       </div>
-                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        <button type="submit" class="btn btn-primary btn-block">Send</button>
                       </div>
                   </div>
               </div>
@@ -118,11 +127,15 @@
       </div>
     </section>
 
+   
+
     <footer class="footer text-faded text-center py-5">
+       <!--Code reference: Facebook for developers @ https://developers.facebook.com/docs/plugins/like-button -->
+      <div class="fb-like" data-href="https://www.facebook.com/Mind-Miracle-Ucmas-Abacus-Classes-200472943893395/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
       <div class="container">
-        <p class="m-0 small">Copyright &copy; Learn Abacus 2018</p>
         <p class="m-0 small"><a href= "https://www.flickr.com/photos/blaahhi/3597105175" style = "color: inherit;">Background image</a> by Sami is licensed under <a href = "https://creativecommons.org/licenses/by/2.0/" style = "color: inherit;">CC BY 2.0</a></p>
-      </div>
+        <p class="m-0 small">Copyright &copy; Learn Abacus 2018</p>  
+      </div>  
     </footer>
 
      <!-- Bootstrap core JavaScript -->

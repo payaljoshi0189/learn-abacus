@@ -80,11 +80,14 @@ app.use(cookieParser());
 app.use(expressValidator());
 
 
+/*A common get request for pages like
+  about, home, enquiry
+*/
 app.get('/views/:parameter', function(req, res) {
-    res.status(200);
-    res.render(req.params.parameter);
+      res.status(200);
+      res.render(req.params.parameter);
+    
 });
-
 
 // Register Functionality
 app.post('/register', (req, res) => {
@@ -137,7 +140,6 @@ passport.use(new passportLocal({
         });
     });
   }));
-
 
 passport.serializeUser(function(member, done) {
   done(null, member.id);
@@ -205,5 +207,40 @@ app.post('/sendEnquiry', (req, res) => {
 
 });
 
+//Fetch the Schedule from the database
+app.get('/schedule'),(req, res) =>{
+  res.redirect('/views/schedule');
+}
+
 console.log('serving on port 8000');
 app.listen(8000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
