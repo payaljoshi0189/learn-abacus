@@ -10,6 +10,12 @@ To run the project, please download the following dependencies:
 	Command:  npm install --save path
 
 
+References:
+1. Bootstrap Template : https://github.com/BlackrockDigital/startbootstrap-business-casual (licensed under MIT)
+2. JQuery Official Documentation: https://api.jquery.com
+3. Bootstrap 4.0 Official Documentation: https://getbootstrap.com/docs/4.0/components/dropdowns
+
+
 Future Work:
 Provide online tutoring.
 
