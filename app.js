@@ -26,6 +26,13 @@ const db = mongoose.connection;
 
 const app = express();
 
+//var http = require('http').Server(app);
+//var io = require('socket.io')(http);
+
+var http = app.listen(8000);
+var io = require('socket.io').listen(http);
+
+
 
 /*  Code reference for Login and Register Functionality:
     1. Passportjs official documentation: http://www.passportjs.org/docs/
@@ -207,13 +214,32 @@ app.post('/sendEnquiry', (req, res) => {
 
 });
 
+
 //Fetch the Schedule from the database
 app.get('/schedule'),(req, res) =>{
   res.redirect('/views/schedule');
 }
 
+//Chat Server
+app.get('/chatting', function(req, res){
+  //res.send('<h1>Hello world</h1>');
+  res.sendFile(__dirname + '/views/chatting.handlebars');
+});
+
+io.on('connection', function(socket){
+    console.log('user is connected');
+      socket.on('sent message', function(msg){
+        io.emit('sent message', msg);
+          console.log('message: ' + msg);
+      });
+      socket.on('disconnect', function(){
+          console.log('user disconnected');
+      });
+  });
+
+http;
+//app.listen(8000);
 console.log('serving on port 8000');
-app.listen(8000);
 
 
 

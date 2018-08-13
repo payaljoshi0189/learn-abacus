@@ -21,6 +21,7 @@
     <link href="../public/css/business-casual.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   
 
@@ -73,29 +74,38 @@
             <div class="col-xl-9 col-lg-12 mx-auto">
               <div class="bg-faded rounded p-5">
                 <div class = "container-fluid">
-                      <div class = "col-md-12 col-sm-6 col-xs-12">
-                          <form method="POST" action="/sendMessage" class="form-inline" name="chattingForm">
+                      <div class = "col-md-12 col-sm-6 col-xs-12">  
+                          <form method="GET" action="/chatting" class="form-inline" name="chattingForm" id = "chattingForm">
                              <div class="form-group mb-2">
                                    <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-comment" style="font-size: 25px;"></i></span>
                                   </div>
-                                    <input type="text" style = "width: 300px !important"class="form-control" id="message" placeholder="Enter a message" name="message" required>
+                                    <input type="text" style = "width: 300px !important"class="form-control" id="messageBox" placeholder="Enter a message" name="message" required>
                               </div>
-                              <button type="submit" class="btn btn-primary mb-2" id="sendMessage">Send Message</button>
+                              <button type="submit" class="btn btn-primary mb-2" id="sendMessage">Send Message</button>                   
                           </form>
+                      </div>
+                      <div class = "container-fluid">
+                          <ul id = "messages" style="list-style: none;"></ul>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+            <script src="/socket.io/socket.io.js"></script>
+            <script>
+              var socket = io();
+               
+              jQuery("#chattingForm").submit('click', function(){
+                socket.emit("sent message", socket.name +" : "+jQuery('#messageBox').val());
+                jQuery('#messageBox').val('');
+                return false;
+              });
+              socket.on("sent message", function(msg){
+                  jQuery('#messages').append(jQuery('<li>').text(msg));
+              });
+            </script>   
           </body>
 
     <footer class="footer text-faded text-center py-5">
