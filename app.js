@@ -76,7 +76,7 @@ app.use(function (req, res, next) {
   res.locals.error = req.flash('error');
   res.locals.user = req.user || null;
   next();
-});
+}); 
 
 
 // Passport init
@@ -201,7 +201,7 @@ app.post('/sendEnquiry', (req, res) => {
         html: emailContents // html body
     };
 
-    // send mail with defined transport object
+    // send email with defined transport object
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
             return console.log(error);
@@ -214,7 +214,6 @@ app.post('/sendEnquiry', (req, res) => {
 
 });
 
-
 //Fetch the Schedule from the database
 app.get('/schedule'),(req, res) =>{
   res.redirect('/views/schedule');
@@ -222,7 +221,6 @@ app.get('/schedule'),(req, res) =>{
 
 //Chat Server
 app.get('/chatting', function(req, res){
-  //res.send('<h1>Hello world</h1>');
   res.sendFile(__dirname + '/views/chatting.handlebars');
 });
 
