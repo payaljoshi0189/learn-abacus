@@ -22,9 +22,14 @@ References:
 3. Bootstrap 4.0 Official Documentation: https://getbootstrap.com/docs/4.0/components/dropdowns
 4. https://socket.io/get-started/chat
 5. https://stackoverflow.com/questions/17696801/express-js-app-listen-vs-server-listen
+6. Font Awesome Icons: https://fontawesome.com/v4.7.0/icons/
 
 Future Work:
-Provide online tutoring.
+1. Authentication and Authorization for various roles like Students, Tutors, etc.
+2. Advanced online tutoring, similar to coursera, udemy, etc.
+3. Ability to upload/view video demos
+4. Better UI
+
 
 License:
 Learn abacus is made available under the "MIT License". Please see the file LICENSE in this distribution for license terms.
