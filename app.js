@@ -1,7 +1,7 @@
-// Copyright (c) 2018 Payal P Joshi
-//[This program is licensed under the "MIT License"]
-// Please see the file LICENSE in the source
-// distribution of this software for license terms.
+/* Copyright (c) 2018 Payal P Joshi
+[This program is licensed under the "MIT License"]
+Please see the file LICENSE in the source
+ distribution of this software for license terms.*/
 
 
 //import depedencies
@@ -18,16 +18,9 @@ var io = require('socket.io').listen(http);
 
 
 
-/*  Code reference for Login and Register Functionality:
-    1. Passportjs official documentation: http://www.passportjs.org/docs/
-    2. bcryptjs official documentation: https://www.npmjs.com/package/bcryptjs
-    3. Video Tutorials by Traversy Media at https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA
-    4. https://github.com/bradtraversy/loginapp
-
-    Code Reference for email functionality: 
+/*  Code Reference for email functionality: 
     1. https://nodemailer.com/about/ 
     2. https://medium.com/@manojsinghnegi/sending-an-email-using-nodemailer-gmail-7cfa0712a799
-    3. https://www.youtube.com/watch?v=nF9g1825mwk
  */
 
 //View Engine Setup
@@ -96,30 +89,27 @@ app.post('/sendEnquiry', (req, res) => {
 
 });
 
-//Fetch the Schedule from the database
-//app.get('/schedule'),(req, res) =>{
-  //res.redirect('/views/schedule');
-//}
 
-//Chat Server
-app.get('/chatting', function(req, res){
-  res.sendFile(__dirname + '/views/chatting.handlebars');
-});
+    //Chat Server
+    app.get('/sendChatMessages', function(req, res){
+      res.status(200)
+      res.setHeader('content-type', 'text/html');
+      res.sendFile(__dirname + '/views/chatting.handlebars');
+    });
 
-io.on('connection', function(socket){
-    console.log('user is connected');
-      socket.on('sent message', function(msg){
-        io.emit('sent message', msg);
-          console.log('message: ' + msg);
+    io.on('connection', function(socket){
+        console.log('user is connected');
+          socket.on('sent message', function(msg){
+            io.emit('sent message', msg);
+              console.log('message: ' + msg);
+          });
+          socket.on('disconnect', function(){
+              console.log('user disconnected');
+          });
       });
-      socket.on('disconnect', function(){
-          console.log('user disconnected');
-      });
-  });
 
-http;
-//app.listen(8000);
-console.log('serving on port 8000');
+    http;
+    console.log('serving on port 8000');
 
 
 

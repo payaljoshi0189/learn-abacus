@@ -26,6 +26,13 @@
     <!-- Custom styles for this template -->
     <link href="../public/css/business-casual.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 250px;  
+        width: 100%;  
+       }
+    </style>
   </head>
   
 
@@ -57,7 +64,7 @@
                       <a class="nav-link text-uppercase text-expanded" href="schedule">Schedule</a>
                     </li>
                     <li class="nav-item  px-lg-4">
-                      <a class="nav-link text-uppercase text-expanded" href="chatting">Chat with a tutor</a>
+                      <a class="nav-link text-uppercase text-expanded" href="getUserName">Chat with a tutor</a>
                     </li>
                     <li class="nav-item  px-lg-4">
                       <a class="nav-link text-uppercase text-expanded" href="enquiry">Get in touch</a>
@@ -87,13 +94,33 @@
                  Oregon
                 </em>
               </p>
-              <p class="mb-0">
-                <small>
-                  <em>Call Anytime</em>
-                </small>
-                <br>
-                (XXX) XXX-XXXX
-              </p>
+
+              <!--Code Reference: Google Maps Documentation @ https://developers.google.com/maps/documentation/javascript/adding-a-google-map-->
+              <!-- Integrating the google maps--> 
+              <div id="map"></div>
+              <script>
+                  // Initialize and add the map
+                  function initMap() {
+                    // The location of Uluru
+                    var psu = {lat: 45.5119444, lng: -122.6841667};
+                    // The map, centered at Uluru
+                    var map = new google.maps.Map(
+                        document.getElementById('map'), {zoom: 14, center: psu});
+                    // The marker, positioned at Uluru
+                    var marker = new google.maps.Marker({position: psu, map: map});
+                  }
+                </script>
+                 <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAROkw-2jF2T-FBTHb_MjjETfTDfbx7tBc&callback=initMap">
+                </script>
+
+                <p class="mb-0">
+                  <small>
+                    <em>Call Anytime</em>
+                  </small>
+                  <br>
+                  (XXX) XXX-XXXX
+                </p>
             </div>
           </div>
         </div>
@@ -112,45 +139,6 @@
     <!-- Bootstrap core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
-    
-    <script type="text/javascript">
-
-      /* 
-        This function is called whenever a 
-        value is selected from a dropdown 
-
-      */
-      function onOptionChange(value){
-        if(value == "select"){
-          //remove the already appended html elements from the previously selected option
-          $("li").remove(".batchInfo");
-          $("li").remove(".list-unstyled-item");
-          $("br").remove();
-          
-      }else if(value == "weekend"){ 
-          //displays information of batches offered on weekends
-          $("li").remove(".batchInfo");
-          $("li").remove(".list-unstyled-item");
-          $("br").remove();
-
-          var row1 = "<br><li class=\"list-unstyled-item list-hours-item d-flex\">Saturday-Sunday Batches</li>";
-          var row2 = "<br><li class = \"batchInfo\">Batch 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"ml-auto\">9:00 AM - 12:00 PM</span></li>";
-          var row3 = "<br><li class = \"batchInfo\">Batch 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"ml-auto\">6:00 PM - 9:00 PM</span></li>";   
-          $("#scheduleList").append(row1 + row2 + row3)
-      }else if(value == "weekdays"){
-        //displays information of batches offered on weekdays
-          $("li").remove(".batchInfo");
-          $("li").remove(".list-unstyled-item");
-          $("br").remove();
-
-          var row1 = "<br><li class=\"list-unstyled-item list-hours-item d-flex\">Monday-Wednesday Batches</li>";
-          var row2 = "<br><li class = \"batchInfo\">Batch 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"ml-auto\">4:00 PM - 5:00 PM</span></li>";
-          var row3 = "<br><li class=\"list-unstyled-item list-hours-item d-flex\">Thursday-Friday Batches</li>";
-          var row4 = "<br><li class = \"batchInfo\">Batch 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"ml-auto\">4:00 PM - 5:30 PM</span></li>";
-          $("#scheduleList").append(row1 + row2 + row3 + row4)
-      }
-    }
-  </script>
   </body>
 
 </html>
