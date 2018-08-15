@@ -6,12 +6,10 @@
 
 //import depedencies
 const express = require('express');
-//var router = express.Router();
 const parser = require('body-parser'); 
 const exphbs = require('express-handlebars');
 const nodemailer = require('nodemailer');
 const path = require('path');
-const cookieParser = require('cookie-parser');
 const app = express();
 
 
