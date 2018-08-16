@@ -21,11 +21,13 @@ Additionally, the project uses an Google Maps API key generated using google clo
 ```
 1. Download or clone the project from the git repository
 
-2. Go to the project directory
+2. Open a terminal and go to the project directory
 
-2. Install dependencies using the command: 'npm install'
+3. Install dependencies using the command: 'npm install'
 
-3. Access the Web Application using the link http://localhost:8000/views/index
+4. Run the application using command 'nodemon app.js'
+
+4. Access the Web Application using the link http://localhost:8000/views/index
 ```
 **References**:
 1. [Bootstrap Template](https://github.com/BlackrockDigital/startbootstrap-business-casual (licensed under MIT))
@@ -40,6 +42,9 @@ Additionally, the project uses an Google Maps API key generated using google clo
 
 6. [Facebook official documentation for developers](https://developers.facebook.com/docs/plugins/like-button)
 
+7. [Google Developers Documentation](https://developers.google.com/maps/documentation/javascript/adding-a-google-map)
+
+
 **Future Work**:
 
 1. Authentication and Authorization for various roles like Students, Tutors, etc.
@@ -52,6 +57,7 @@ Additionally, the project uses an Google Maps API key generated using google clo
 
 
 **License**:
+
 Copyright (c) 2018 Payal P Joshi
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

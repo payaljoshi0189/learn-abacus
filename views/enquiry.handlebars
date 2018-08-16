@@ -4,6 +4,10 @@
   Please see the file LICENSE in the source
   distribution of this software for license terms.
 -->
+
+<!-- Web page that opens on click of 'Send an Enquiry' tab
+  Makes use of nodemailer to send an email on receiving a new query
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -111,10 +115,11 @@
                         </div>
                        <div class="form-group">
                           <label for="enquiryTextarea" style="text-align: left!important;">Enquiry</label>
-                          <textarea class="form-control" id="enquiryTextarea" rows="3" placeholder="Enter your query here.">
+                          <textarea class="form-control" id="enquiryTextarea" rows="3" placeholder="Enter your query here." name= "enquiryTextarea">
                           </textarea>
                       </div>
                         <button type="submit" class="btn btn-primary btn-block">Send</button>
+                      </form>
                       </div>
                   </div>
               </div>

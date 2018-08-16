@@ -54,21 +54,20 @@ app.post('/sendEnquiry', (req, res) => {
 	var emailContents = 
 	`<p> ${req.body.name} has sent an enquiry.</p>
      <p> The message sent is: ${req.body.enquiryTextarea} </p>
-     <p> Contact Details are:</p> <br>
+     <p> Contact Details are:</p>
      <p> Email Id: ${req.body.email} </p>
 	`;
 	let transporter = nodemailer.createTransport({
        service: 'gmail',
         auth: {
-            /* user:  // generated ethereal user
-            pass: 	// generated ethereal password
-            */
+            user:'Enter a valid gmail id here', //email id
+            pass:'Enter a correct password for the above id' //password
+            
         }
     });
 
     // setup email data with unicode symbols
     let mailOptions = {
-        //from: '"Mind Miracle" <testlearnabacus@gmail.com>', // sender address
         from: req.body.email,
         to: 'testlearnabacus@gmail.com', // list of receivers
         subject: 'New enquiry received', // Subject line
@@ -99,10 +98,14 @@ app.post('/sendEnquiry', (req, res) => {
 
     io.on('connection', function(socket){
         console.log('user is connected');
+
+        //Action to be taken upon receiving 'sent message' socket event
           socket.on('sent message', function(msg){
             io.emit('sent message', msg);
               console.log('message: ' + msg);
           });
+
+          //Action to be taken upon socket disconnect
           socket.on('disconnect', function(){
               console.log('user disconnected');
           });
