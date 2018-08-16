@@ -25,9 +25,11 @@ Additionally, the project uses an Google Maps API key generated using google clo
 
 3. Install dependencies using the command: 'npm install'
 
-4. Run the application using command 'nodemon app.js'
+4. In the app.js, at line 63 and 64, in the user field, enter a valid gmail id, pass field should have a valid password associated with the account.
 
-4. Access the Web Application using the link http://localhost:8000/views/index
+5. Run the application using command 'nodemon app.js'
+
+6. Access the Web Application using the link http://localhost:8000/views/index
 ```
 **References**:
 1. [Bootstrap Template](https://github.com/BlackrockDigital/startbootstrap-business-casual (licensed under MIT))
